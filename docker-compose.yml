@@ -17,9 +17,9 @@ services:
       - NATS_SERVERS=nats://nats_servers:4222
 
   products-ms:
-    build: ./products-ms
+    build: ./products-microservice
     volumes:
-      - ./products-ms/src:/usr/src/app/src
+      - ./products-microservice/src:/usr/src/app/src
     command: npm run start:dev
     environment:
       - PORT=3001
@@ -29,9 +29,9 @@ services:
     depends_on:
       - orders-db
     restart: on-failure
-    build: ./orders-ms
+    build: ./orders-microservice
     volumes:
-      - ./orders-ms/src:/usr/src/app/src
+      - ./orders-microservice/src:/usr/src/app/src
     command: npm run start:dev
     environment:
       - PORT=3002
@@ -42,7 +42,7 @@ services:
   orders-db:
     image: postgres:14.4
     volumes:
-      - ./orders-ms/postgres:/var/lib/postgresql/data
+      - ./orders-microservice/postgres:/var/lib/postgresql/data
     # ports:
     #   - 5432:5432
     environment:
