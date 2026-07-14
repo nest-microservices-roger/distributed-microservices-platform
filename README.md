@@ -1,7 +1,8 @@
 ## Dev
 1. Clonar repositorio
 2. crear el .env basado en el .env.template
-3. ejecutar el comando `docker compose up --buil`
+3. Ejecutar el comando `git submodule update --init --recursive` para reconstruir la sub-modulos
+4. ejecutar el comando `docker compose up --build`
 
 ### Pasos para crear los Git Submodules
 
@@ -12,7 +13,7 @@
 ```
 git submodule add <repository_url> <directory_name>
 ```
-4. Añadir los cambios al repositorio (git add, git commit, git push)
+4. Añadir los cambios al repositorio (git add, git   commit, git push)
 Ej:
 ```
 git add .
